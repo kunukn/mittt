@@ -13,7 +13,7 @@
 > Forked from https://github.com/developit/mitt<br/>
 > New project created from TSDX CLI.
 
-- **Microscopic:** weighs less than 300 bytes gzipped
+- **Microscopic:** weighs <a href="https://bundlephobia.com/result?p=mittt">~300 bytes gzipped size</a>
 - **Useful:** a wildcard `"*"` event type listens to all events
 - **Useful:** a wildcard `"*"` emit invokes all registered handlers
 - **Useful:** a wildcard `"*!"` emit invokes all unique registered handlers
@@ -131,7 +131,7 @@ emitter.on('foo', foo)
 ## Smallest-Install
 
 If you want to install the smallest size without wildcard (`*`) support.<br/>
-~200 bytes gzipped size.
+<a href="https://bundlephobia.com/result?p=mittt@0.1.0">~200 bytes gzipped size</a>.
 
 ```sh
 npm install mittt@^0.1
