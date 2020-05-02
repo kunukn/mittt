@@ -3,7 +3,7 @@
   <a href="https://www.npmjs.org/package/mittt">
   <img src="https://img.shields.io/npm/v/mittt.svg?style=flat" alt="npm"></a>   <a href="https://david-dm.org/kunukn/mittt"><img src="http://img.badgesize.io/https://unpkg.com/mittt/dist/mittt.cjs.production.min.js?compression=gzip" alt="gzip size">
 </a>
-  
+
 </p>
 <br/>
 
@@ -25,13 +25,14 @@ Mittt was made for the browser, but works in any JavaScript runtime. It has no d
 
 - [Install](#install)
 - [Usage](#usage)
+- [Smallest-Install](#smallest-install)
 
 ## Install
 
 This project uses [node](http://nodejs.org) and [npm](https://npmjs.com). Go check them out if you don't have them locally installed.
 
 ```sh
-$ npm install mittt
+npm install mittt
 # or
 # yarn add mittt
 ```
@@ -125,4 +126,15 @@ const emitter: Emitter = mittt()
 let foo: EventHandler = (eventType, payload) => {}
 
 emitter.on('foo', foo)
+```
+
+## Smallest-Install
+
+If you want to install the smallest size without wildcard (`*`) support.<br/>
+~200 bytes gzipped size.
+
+```sh
+npm install mittt@^0.1
+# or
+# yarn add mittt@^0.1
 ```
