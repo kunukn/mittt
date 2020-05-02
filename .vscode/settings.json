@@ -1,12 +1,15 @@
 {
-  "editor.formatOnSave": true,
-  "[javascript]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "eslint.alwaysShowStatus": true,
-  "typescript.validate.enable": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
+    "workbench.tree.indent": 25,
+    "eslint.run": "onType",
+    "eslint.validate": [
+        "html",
+        "javascript"
+    ],
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+        // https://github.com/prettier/prettier-vscode#linter-integration
+        "source.fixAll.eslint": true,
+        "source.fixAll.tslint": true,
+        "source.fixAll.stylelint": true
+    },
 }
