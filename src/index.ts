@@ -16,7 +16,7 @@ export type Emitter = {
   emit: (eventType: string, payload?: any) => void
 }
 
-export default function mittt(all: EventHandlerMap): Emitter {
+export default function mittt(all?: EventHandlerMap): Emitter {
   all = all || Object.create(null)
 
   return {
