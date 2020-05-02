@@ -6,6 +6,7 @@ export type EventHandlerList = Array<EventHandler>
 // A map of event types and their corresponding event handlers.
 export type EventHandlerMap = {
   '*'?: EventHandlerList
+  '*!'?: EventHandlerList
   [eventType: string]: EventHandlerList
 }
 
