@@ -7,7 +7,6 @@
 </p>
 <br/>
 
-
 # Mittt
 
 > Tiny functional event emitter / pubsub.<br/>
@@ -65,30 +64,57 @@ function onEvent(eventType, payload) {
   console.log(eventType, payload);
 }
 
-// listen to an event
+// Listen to an event
 emitter.on('foo', onEvent);
 
-// listen to all events
+// Listen to all events
 emitter.on('*', onEvent);
 
-// fire an event
+// Fire an event
 emitter.emit('foo');
 
-// fire an event with payload
+// Fire an event with payload
 const payload = { a: 'b' };
 emitter.emit('bar', payload);
 
-// fire all unique registered handlers with payload
-// payload is optional
+// Fire all registered handlers with payload
+emitter.emit('*', payload); // payload is optional
+
+// Given these listeners. Both onEvent would be invoked on '*' emit.
+emitter.on('foo', onEvent);
+emitter.on('bar', onEvent);
 emitter.emit('*', payload);
 
-// fire all registered handlers with payload
-// payload is optional
-emitter.emit('**', payload);
+// Fire all unique registered handlers with payload
+emitter.emit('*!', payload); // payload is optional
 
-// working with handler references:
+// Given these listeners. Only one onEvent would be invoked on '*!' emit.
+emitter.on('foo', onEvent);
+emitter.on('bar', onEvent);
+emitter.emit('*!', payload);
+
+// Given these listeners. Both handlers would be invoked on '*!' emit.
+emitter.on('foo', (eventType, payload) => {});
+emitter.on('bar', (eventType, payload) => {});
+emitter.emit('*!', payload);
+
+// Working with handler references:
 emitter.on('foo', onEvent); // listen
 emitter.off('foo', onEvent); // unlisten
+
+// Initiate emitter with event setup
+const emitter = mittt({
+  foo: [
+    (eventType, payload) => {
+      console.log(eventType, payload); // foo, undefined
+    },
+    (eventType, payload) => {
+      console.log(eventType, payload); // foo, undefined
+    },
+  ],
+});
+
+emitter.emit('foo'); // all handlers for foo are invoked
 ```
 
 ### TypeScript
