@@ -3,7 +3,7 @@
   <a href="https://www.npmjs.org/package/mittt">
   <img src="https://img.shields.io/npm/v/mittt.svg?style=flat" alt="npm"></a>   <a href="https://david-dm.org/kunukn/mittt"><img src="http://img.badgesize.io/https://unpkg.com/mittt/dist/mittt.cjs.production.min.js?compression=gzip" alt="gzip size">
 </a>
-  
+
 </p>
 <br/>
 
@@ -13,13 +13,10 @@
 > Forked from https://github.com/developit/mitt<br/>
 > New project created from TSDX CLI.
 
-- **Microscopic:** weighs less than 300 bytes gzipped
-- **Useful:** a wildcard `"*"` event type listens to all events
-- **Useful:** a wildcard `"*"` emit invokes all registered handlers
-- **Useful:** a wildcard `"*!"` emit invokes all unique registered handlers
+- **Microscopic:** weighs less than 200 bytes gzipped
 - **Functional:** methods don't rely on `this`
 
-Mittt was made for the browser, but works in any JavaScript runtime. It has no dependencies and supports IE11+.
+Mittt was made for the browser, but works in any JavaScript runtime. It has no dependencies and supports IE9+.
 
 ## Table of Contents
 
@@ -66,36 +63,12 @@ function onEvent(eventType, payload) {
 // Listen to an event
 emitter.on('foo', onEvent)
 
-// Listen to all events
-emitter.on('*', onEvent)
-
 // Fire an event
 emitter.emit('foo')
 
 // Fire an event with payload
 const payload = { a: 'b' }
 emitter.emit('bar', payload)
-
-// Fire all registered handlers with payload
-emitter.emit('*', payload) // payload is optional
-
-// Given these listeners. Both onEvent would be invoked on '*' emit.
-emitter.on('foo', onEvent)
-emitter.on('bar', onEvent)
-emitter.emit('*', payload)
-
-// Fire all unique registered handlers with payload
-emitter.emit('*!', payload) // payload is optional
-
-// Given these listeners. Only one onEvent would be invoked on '*!' emit.
-emitter.on('foo', onEvent)
-emitter.on('bar', onEvent)
-emitter.emit('*!', payload)
-
-// Given these listeners. Both handlers would be invoked on '*!' emit.
-emitter.on('foo', (eventType, payload) => {})
-emitter.on('bar', (eventType, payload) => {})
-emitter.emit('*!', payload)
 
 // Working with handler references:
 emitter.on('foo', onEvent) // listen
