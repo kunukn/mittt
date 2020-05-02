@@ -119,6 +119,10 @@ emitter.emit('foo') // all handlers for foo are invoked
 ### TypeScript
 
 ```ts
-import mittt, { Emitter } from 'mittt'
+import mittt, { Emitter, EventHandler } from 'mittt'
 const emitter: Emitter = mittt()
+
+let foo: EventHandler = (eventType, payload) => {}
+
+emitter.on('foo', foo)
 ```

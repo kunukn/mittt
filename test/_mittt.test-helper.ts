@@ -7,7 +7,7 @@ import {
 
 const emptyArray = []
 
-export default function Helper(mittt) {
+export default function Tester(mittt: Function) {
   describe('mittt#', () => {
     let events: EventHandlerMap
     let emitter: Emitter
