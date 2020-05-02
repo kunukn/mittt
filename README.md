@@ -7,6 +7,8 @@
 
 - **Microscopic:** weighs less than 300 bytes gzipped
 - **Useful:** a wildcard `"*"` event type listens to all events
+- **Useful:** a wildcard `"*"` event type emit invokes all unique registered handlers
+- **Useful:** a wildcard `"**"` event type emit invoke all registered handlers
 - **Functional:** methods don't rely on `this`
 - **Great Name:** somehow [mittt](https://npm.im/mittt) wasn't taken
 
@@ -60,15 +62,20 @@ emitter.on('foo', onEvent);
 // listen to all events
 emitter.on('*', onEvent);
 
+// fire an event
+emitter.emit('foo');
+
 // fire an event with payload
 const payload = { a: 'b' };
-emitter.emit('foo', payload);
+emitter.emit('bar', payload);
 
-// fire an event without payload
-emitter.emit('bar');
-
-// fire all registered events with payload
+// fire all unique registered handlers with payload
+// payload is optional
 emitter.emit('*', payload);
+
+// fire all registered handlers with payload
+// payload is optional
+emitter.emit('**', payload);
 
 // working with handler references:
 emitter.on('foo', onEvent); // listen
