@@ -101,7 +101,7 @@ emitter.emit('*!', payload)
 emitter.on('foo', onEvent) // listen
 emitter.off('foo', onEvent) // unlisten
 
-// Initiate emitter with event setup
+// Initiate emitter with on event setup
 const emitter = mittt({
   foo: [
     (eventType, payload) => {
