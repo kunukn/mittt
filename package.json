@@ -23,13 +23,6 @@
       "pre-commit": "tsdx lint"
     }
   },
-  "prettier": {
-    "printWidth": 80,
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "es5",
-    "endOfLine": "auto"
-  },
   "name": "mittt",
   "author": "Kunuk Nykjaer",
   "module": "dist/mittt.esm.js",

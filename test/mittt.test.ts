@@ -1,5 +1,5 @@
 import mittt from '../src'
 
-import Tester from './_mittt.test-helper'
+import Tester from './mittt.tester'
 
 Tester(mittt)
