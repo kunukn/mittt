@@ -1,8 +1,8 @@
 import {
-  EventHandlerMap,
   Emitter,
   EventHandler,
   EventHandlerList,
+  EventHandlerMap,
 } from '../src'
 
 const emptyArray = []
