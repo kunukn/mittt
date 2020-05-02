@@ -1,9 +1,18 @@
-> Forked from https://github.com/developit/mitt<br/>
-> New project created from TSDX CLI.
+<p align="center">
+
+  <a href="https://www.npmjs.org/package/mittt">
+  <img src="https://img.shields.io/npm/v/mittt.svg?style=flat" alt="npm"></a>   <a href="https://david-dm.org/kunukn/mittt"><img src="http://img.badgesize.io/https://unpkg.com/mittt/dist/mittt.cjs.production.min.js?compression=gzip" alt="gzip size">
+</a>
+  
+</p>
+<br/>
+
 
 # Mittt
 
-> Tiny functional event emitter / pubsub.
+> Tiny functional event emitter / pubsub.<br/>
+> Forked from https://github.com/developit/mitt<br/>
+> New project created from TSDX CLI.
 
 - **Microscopic:** weighs less than 300 bytes gzipped
 - **Useful:** a wildcard `"*"` event type listens to all events
