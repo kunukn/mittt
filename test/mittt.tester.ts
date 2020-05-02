@@ -18,11 +18,26 @@ export default function Tester(mittt: Function) {
       emitter = mittt(events)
     })
 
-    describe('on()', () => {
+    describe('mittt()', () => {
       it('should default export be a function', () => {
         expect(mittt).toEqual(expect.any(Function))
       })
 
+      it('should be possible create an instance without arg', () => {
+        let emitter1: Emitter = mittt()
+        expect(emitter1).toBeTruthy()
+      })
+
+      it('should be possible create an instance with arg', () => {
+        let handler: EventHandler = () => {}
+        let handlerList: EventHandlerList = [handler]
+        let events1: EventHandlerMap = { foo: handlerList }
+        let emitter1: Emitter = mittt(events1)
+        expect(emitter1).toBeTruthy()
+      })
+    })
+
+    describe('on()', () => {
       it('should be a function', () => {
         expect(emitter).toHaveProperty('on')
         expect(emitter.on).toEqual(expect.any(Function))
