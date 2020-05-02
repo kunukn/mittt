@@ -5,7 +5,6 @@ export type EventHandlerList = Array<EventHandler>
 
 // A map of event types and their corresponding event handlers.
 export type EventHandlerMap = {
-  '*'?: EventHandlerList
   [eventType: string]: EventHandlerList
 }
 
@@ -39,34 +38,9 @@ export default function mittt(all: EventHandlerMap): Emitter {
      */
     /* eslint array-callback-return: 0 */
     emit(eventType: string, payload?: any) {
-      let run = (handler: EventHandler, eventType: string, payload: any) => {
-        if (typeof payload !== 'undefined') handler(eventType, payload)
-        else handler(eventType)
-      }
-
-      if (eventType === '*') {
-        Object.keys(all).forEach(key => {
-          ;(all[key] || [])
-            .slice()
-            .map(handler => run(handler, eventType, payload))
-        })
-      } else if (eventType === '*!') {
-        let set: Set<EventHandler> = new Set()
-
-        Object.keys(all).forEach(key => {
-          ;(all[key] || []).slice().map(handler => set.add(handler))
-        })
-        set.forEach(handler => {
-          run(handler, eventType, payload)
-        })
-      } else {
-        ;(all[eventType] || []).slice().map(handler => {
-          run(handler, eventType, payload)
-        })
-        ;(all['*'] || []).slice().map(handler => {
-          run(handler, eventType, payload)
-        })
-      }
+      ;(all[eventType] || []).slice().map(handler => {
+        handler(eventType, payload)
+      })
     },
   }
 }
