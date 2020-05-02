@@ -7,6 +7,8 @@
 
 - **Microscopic:** weighs less than 300 bytes gzipped
 - **Useful:** a wildcard `"*"` event type listens to all events
+- **Functional:** methods don't rely on `this`
+- **Great Name:** somehow [mittt](https://npm.im/mittt) wasn't taken
 
 Mittt was made for the browser, but works in any JavaScript runtime. It has no dependencies and supports IE11+.
 

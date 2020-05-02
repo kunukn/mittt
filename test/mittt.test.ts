@@ -160,17 +160,39 @@ describe('mittt#', () => {
     it('should be able to emit * and invoke all handlers', () => {
       let event1 = jest.fn();
       let event2 = jest.fn();
+      let event3 = jest.fn();
       let payload = { a: 'a' };
 
       events['foo'] = [event1, event2];
-      events['bar'] = [event2];
+      events['bar'] = [event1, event2, event3];
 
       emitter.emit('*', payload);
 
-      expect(event1).toHaveBeenCalledTimes(1);
+      expect(event1).toHaveBeenCalledTimes(2);
       expect(event1).toHaveBeenCalledWith('*', payload);
       expect(event2).toHaveBeenCalledTimes(2);
       expect(event2).toHaveBeenCalledWith('*', payload);
+      expect(event3).toHaveBeenCalledTimes(1);
+      expect(event3).toHaveBeenCalledWith('*', payload);
+    });
+
+    it('should be able to emit ** and invoke all unique handlers', () => {
+      let event1 = jest.fn();
+      let event2 = jest.fn();
+      let event3 = jest.fn();
+      let payload = { a: 'a' };
+
+      events['foo'] = [event1, event2];
+      events['bar'] = [event1, event2, event3];
+
+      emitter.emit('**', payload);
+
+      expect(event1).toHaveBeenCalledTimes(1);
+      expect(event1).toHaveBeenCalledWith('**', payload);
+      expect(event2).toHaveBeenCalledTimes(1);
+      expect(event2).toHaveBeenCalledWith('**', payload);
+      expect(event3).toHaveBeenCalledTimes(1);
+      expect(event3).toHaveBeenCalledWith('**', payload);
     });
   });
 });

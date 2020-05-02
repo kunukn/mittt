@@ -46,6 +46,16 @@ export default function mittt(all: EventHandlerMap): Emitter {
             else handler(eventType);
           });
         });
+      } else if (eventType === '**') {
+        let set: Set<EventHandler> = new Set();
+
+        Object.keys(all).forEach(key => {
+          (all[key] || []).slice().map(handler => set.add(handler));
+        });
+        set.forEach(handler => {
+          if (typeof payload !== 'undefined') handler(eventType, payload);
+          else handler(eventType);
+        });
       } else {
         (all[eventType] || []).slice().map(handler => {
           if (typeof payload !== 'undefined') handler(eventType, payload);
