@@ -131,10 +131,10 @@ emitter.on('foo', foo)
 ## Smallest-Install
 
 If you want to install the smallest size without wildcard (`*`) support.<br/>
-<a href="https://bundlephobia.com/result?p=mittt@0.1">~200 bytes gzipped size</a>.
+<a href="https://bundlephobia.com/result?p=mittt@1">~200 bytes gzipped size</a>.
 
 ```sh
-npm install mittt@^0.1
+npm install mittt@^1
 # or
-# yarn add mittt@^0.1
+# yarn add mittt@^1
 ```
