@@ -1,13 +1,9 @@
-<p align="center">
-
-  <a href="https://www.npmjs.org/package/mittt">
-  <img src="https://img.shields.io/npm/v/mittt.svg?style=flat" alt="npm"></a>   <a href="https://david-dm.org/kunukn/mittt"><img src="http://img.badgesize.io/https://unpkg.com/mittt/dist/mittt.cjs.production.min.js?compression=gzip" alt="gzip size">
-</a>
-
-</p>
-<br/>
-
 # Mittt
+
+[![npm version](https://img.shields.io/npm/v/mittt.svg?style=flat-square)](https://www.npmjs.com/package/mittt)
+[![npm downloads](https://img.shields.io/npm/dm/mittt.svg?style=flat-square)](https://www.npmjs.com/package/mittt)
+[![gzip](https://img.shields.io/bundlephobia/minzip/mittt.svg)](https://bundlephobia.com/result?p=mittt)
+[![license](https://img.shields.io/github/license/kunukn/mittt)](https://github.com/kunukn/mittt/blob/master/LICENSE)
 
 > Tiny functional event emitter / pubsub.<br/>
 > Forked from https://github.com/developit/mitt<br/>
