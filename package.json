@@ -16,7 +16,8 @@
     "test": "tsdx test src",
     "test:dist": "tsdx test dist",
     "lint": "tsdx lint",
-    "prepare": "tsdx build"
+    "prepare": "tsdx build",
+    "gzip": "node gzip-size.js"
   },
   "peerDependencies": {},
   "husky": {
@@ -28,6 +29,7 @@
   "author": "Kunuk Nykjaer",
   "module": "dist/mittt.esm.js",
   "devDependencies": {
+    "gzip-size": "^5.1.1",
     "husky": "^4.2.5",
     "tsdx": "^0.13.2",
     "tslib": "^1.11.1",
