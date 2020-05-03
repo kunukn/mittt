@@ -13,7 +13,7 @@
 > Forked from https://github.com/developit/mitt<br/>
 > New project created from TSDX CLI.
 
-- **Microscopic:** weighs less than 200 bytes gzipped
+- **Microscopic:** weighs <a href="https://bundlephobia.com/result?p=mittt@1">~200 bytes gzipped size</a>.
 - **Functional:** methods don't rely on `this`
 
 Mittt was made for the browser, but works in any JavaScript runtime. It has no dependencies and supports IE9+.
