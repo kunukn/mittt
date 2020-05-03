@@ -102,15 +102,15 @@ emitter.off('foo', onEvent) // unlisten
 const emitter = mittt({
   foo: [
     (eventType, payload) => {
-      console.log(eventType, payload) // foo, undefined
+      console.log(eventType, payload) // foo, 123
     },
     (eventType, payload) => {
-      console.log(eventType, payload) // foo, undefined
+      console.log(eventType, payload) // foo, 123
     },
   ],
 })
 
-emitter.emit('foo') // all handlers for foo are invoked
+emitter.emit('foo', 123) // all handlers for foo are invoked
 ```
 
 ### TypeScript
