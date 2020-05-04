@@ -99,16 +99,16 @@ emitter.on('foo', onEvent) // listen
 emitter.off('foo', onEvent) // unlisten
 
 // Initiate emitter with on event setup
-const emitter = mittt({
-  foo: [
+const eventHandlerMap = Object.create(null)
+eventHandlerMap.foo = [
     (eventType, payload) => {
       console.log(eventType, payload) // foo, 123
     },
     (eventType, payload) => {
       console.log(eventType, payload) // foo, 123
     },
-  ],
-})
+  ]
+const emitter = mittt(eventHandlerMap)
 
 emitter.emit('foo', 123) // all handlers for foo are invoked
 ```
